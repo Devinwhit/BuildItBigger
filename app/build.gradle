@@ -33,14 +33,15 @@ android {
         }
     }
 
-    productFlavors{
-        paid{
+    productFlavors {
+        paid {
             applicationId 'com.udacity.gradle.builditbigger.paid'
         }
         free {
             applicationId 'com.udacity.gradle.builditbigger.free'
         }
     }
+    sourceSets { free { java.srcDirs = ['src/free/java', 'src/free/java/'] } }
 }
 
 dependencies {
