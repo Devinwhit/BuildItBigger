@@ -25,6 +25,7 @@ public class MainActivityFragment extends Fragment {
     private static final String JOKES_EXTRA = "jokes_extra";
     private String mJoke;
 
+    public boolean noTest = false;
     public MainActivityFragment() {
     }
 
@@ -32,6 +33,7 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
+        noTest = true;
 
         AdView mAdView = (AdView) root.findViewById(R.id.adView);
         // Create an ad request. Check logcat output for the hashed device ID to
@@ -55,9 +57,12 @@ public class MainActivityFragment extends Fragment {
 
 
     public void setJoke(String joke) {
-        mJoke = joke;
-        Intent intent = new Intent(getActivity(), JokeActivity.class);
-        intent.putExtra(JOKES_EXTRA, joke);
-        startActivity(intent);
+        if (noTest){
+            mJoke = joke;
+            Intent intent = new Intent(getActivity(), JokeActivity.class);
+            intent.putExtra(JOKES_EXTRA, joke);
+            startActivity(intent);
+        }
+
     }
 }

@@ -41,7 +41,10 @@ android {
             applicationId 'com.udacity.gradle.builditbigger.free'
         }
     }
-    sourceSets { free { java.srcDirs = ['src/free/java', 'src/free/java/'] } }
+    sourceSets {
+        free { java.srcDirs = ['src/free/java', 'src/free/java/'] }
+        main { java.srcDirs = ['src/main/java', 'src/androidTest'] }
+    }
 }
 
 dependencies {
