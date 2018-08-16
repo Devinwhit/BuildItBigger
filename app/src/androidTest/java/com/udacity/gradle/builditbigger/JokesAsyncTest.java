@@ -14,7 +14,7 @@ public class JokesAsyncTest extends AndroidTestCase {
 
     public MainActivityFragment mFragment = new MainActivityFragment();
 
-    public void testAsync() {
+    public void testAsyncForNull() {
 
         JokeAsync async =  new JokeAsync();
         async.execute(mFragment);
@@ -25,5 +25,17 @@ public class JokesAsyncTest extends AndroidTestCase {
             e.printStackTrace();
         }
         assertNotNull(result);
+    }
+
+    public void testAsyncForServerConnection() {
+        JokeAsync async =  new JokeAsync();
+        async.execute(mFragment);
+        String result = null;
+        try {
+            result = async.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        assertNotSame(result, "Connection refused");
     }
 }

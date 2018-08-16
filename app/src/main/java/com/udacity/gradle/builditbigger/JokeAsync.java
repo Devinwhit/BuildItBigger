@@ -49,7 +49,7 @@ public class JokeAsync extends AsyncTask<MainActivityFragment, Void, String> {
         try {
             return myApiService.getJoke().execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            return null;
         }
     }
 
